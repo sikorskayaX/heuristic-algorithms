@@ -27,9 +27,9 @@ for generation in range(generations):
     best_indices = fitness_values.argsort()[:selection_size]
     selected = population[best_indices]
     
-    # Скрещивание (кроссовер) особей
+    # Скрещивание особей
     offspring = []
-    for _ in range(int(population_size / 2)):
+    for i in range(int(population_size / 2)):
         parents = selected[np.random.choice(selection_size, 2, replace=False)]
         cross_point = np.random.randint(1, genes_number)
         child1 = np.concatenate((parents[0][:cross_point], parents[1][cross_point:]))
@@ -43,8 +43,8 @@ for generation in range(generations):
     
     # Выводим лучшую особь и ее приспособленность
     best_individual = population[fitness_values.argmin()]
-    print(f"Generation {generation}: Best fitness = {fitness(best_individual):.4f}, x = {best_individual.mean():.4f}")
+    print(f"Поколение {generation}: x = {best_individual.mean():.4f}, f(x) = {fitness(best_individual):.4f}")
 
 # Выводим лучшую особь из последнего поколения
 best_individual = population[fitness_values.argmin()]
-print(f"Best individual: x = {best_individual.mean():.4f}, f(x) = {fitness(best_individual):.4f}")
+print("Лучшая особь: ", f"x = {best_individual.mean():.4f}, f(x) = {fitness(best_individual):.4f}")
