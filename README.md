@@ -37,6 +37,37 @@ be randomly changed - this introduces new variations into the population.
 
 <b> Output of the result: </b> The smallest value of x and the minimum of the function at the minimum point
 
+## example of working 
+Input params:
+
+```bash
+# The function whose minimum we are seeking
+def f(x):
+    return 1/5 * x**4 - 11/4 * x**3 + 3 * x**2 + 12 * x
+
+# Genetic algorithm parameters
+population_size = 100  # Population size
+genes_number = 10      # Number of genes in an individual
+mutation_rate = 0.01   # Mutation rate
+generations = 10      # Number of generations 
+selection_size = 20    # Number of individuals for selection
+```
+
+Output result :
+```bash
+Generation 0: x = 6.4620, f(x) = -190.4947
+Generation 1: x = 7.0549, f(x) = -236.1998
+Generation 2: x = 8.0801, f(x) = -305.3853
+Generation 3: x = 8.4314, f(x) = -323.1256
+Generation 4: x = 8.8041, f(x) = -336.8545
+Generation 5: x = 8.9628, f(x) = -340.8062
+Generation 6: x = 9.0758, f(x) = -342.8424
+Generation 7: x = 9.3031, f(x) = -344.8144
+Generation 8: x = 9.2684, f(x) = -344.7065
+Generation 9: x = 9.3363, f(x) = -344.8498
+Best individual:  x = 9.3363, f(x) = -344.8498
+```
+
 ## ant algorithm 🐜
 
 This code implements the <b>ant colony algorithm</b> to solve the traveling salesman problem, which
@@ -71,3 +102,25 @@ of the algorithm, are output.
 The code uses np.inf to indicate infinity in the distance matrix in order to
 prevent the choice of a path from the city to it. Adding a small constant 1e-10 to
 the distance matrix when calculating visibility prevents division by zero.
+
+## example of working 
+Input params:
+
+```bash
+# Distance matrix
+distance_matrix = np.array([
+    [np.inf, 38, 74, 59, 45],
+    [38, np.inf, 46, 61, 72],
+    [74, 46, np.inf, 49, 85],
+    [59, 61, 49, np.inf, 42],
+    [45, 72, 85, 42, np.inf]
+])
+
+# Starting city for ant
+path = [np.random.randint(num_cities)]  
+```
+
+Output result :
+```bash
+Length of best path:  220.0
+```
